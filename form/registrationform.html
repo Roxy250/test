@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        
+        input[type="button"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        
+        #credential {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="myForm" method="post">
+        <H1> Registration Form</H1>
+        <label>Name:<input type="text" id="name"/></label>
+        <label>LName:<input type="text" id="lname"/></label>
+        <label>Age:<input type="number" id="age"/></label>
+        <input type="button" value="submit" onclick="submitForm()" />
+    </form>
+    <div id="credential" style="display: none;">
+        <h1>Credential page</h1>
+        <p id="cname"></p>
+        <p id="clname"></p>
+        <p id="cage"></p>
+        <textarea id="text"></textarea>
+        <input onclick="get()" value="submit" type="button" />
+    </div>
+    <script>
+        function submitForm() {
+            var name = document.getElementById("name").value;
+            var lname = document.getElementById("lname").value;
+            var age = document.getElementById("age").value;
+
+            document.getElementById("cname").innerHTML = "Name: " + name;
+            document.getElementById("clname").innerHTML = "LName: " + lname;
+            document.getElementById("cage").innerHTML = "Age: " + age;
+
+            document.getElementById("myForm").style.display = "none";
+            document.getElementById("credential").style.display = "block";
+        }
+
+        function get() {
+            var textContent = document.getElementById("text").value;
+            alert("Textarea Content:\n" + textContent);
+        }
+    </script>
+</body>
+
+</html>
