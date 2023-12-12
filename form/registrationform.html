@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Form</title>
-    <style>
+    <title>Registration Form</title>
+    <!-- <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -66,33 +66,41 @@
             box-sizing: border-box;
             margin-bottom: 10px;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
     <form id="myForm" method="post">
-        <H1> Registration Form</H1>
-        <label>Name:<input type="text" id="name"/></label>
-        <label>LName:<input type="text" id="lname"/></label>
-        <label>Age:<input type="number" id="age"/></label>
-        <input type="button" value="submit" onclick="submitForm()" />
+        <h1>Registration Form</h1>
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <input type="button" value="Submit" onclick="submitForm()">
     </form>
+    
     <div id="credential" style="display: none;">
-        <h1>Credential page</h1>
+        <h1>Credentials</h1>
         <p id="cname"></p>
         <p id="clname"></p>
         <p id="cage"></p>
-        <textarea id="text"></textarea>
-        <input onclick="get()" value="submit" type="button" />
+        <textarea id="text" name="comments" placeholder="Additional comments"></textarea>
+        <input onclick="get()" value="Submit" type="button">
     </div>
+    
     <script>
         function submitForm() {
             var name = document.getElementById("name").value;
             var lname = document.getElementById("lname").value;
             var age = document.getElementById("age").value;
 
-            document.getElementById("cname").innerHTML = "Name: " + name;
-            document.getElementById("clname").innerHTML = "LName: " + lname;
+            document.getElementById("cname").innerHTML = "First Name: " + name;
+            document.getElementById("clname").innerHTML = "Last Name: " + lname;
             document.getElementById("cage").innerHTML = "Age: " + age;
 
             document.getElementById("myForm").style.display = "none";
@@ -101,7 +109,7 @@
 
         function get() {
             var textContent = document.getElementById("text").value;
-            alert("Textarea Content:\n" + textContent);
+            alert("Your Feedback is:\n" + textContent);
         }
     </script>
 </body>
