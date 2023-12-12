@@ -1,0 +1,16 @@
+step1-->open Docker-desktop app 
+step2-->open cmd as a administrator
+step3-->pull mongo from dockerHub
+$docker pull mongo:latest
+step4-->run the mongo image
+$docker run -d -p 27017:27017 --name mymongo mongo:latest
+step5-->change your database localhost to mymongo
+ open application.properties
+ spring.data.mongodb.uri=mymongo:27017/Entity
+ step6-->start dockerization
+ 		 1>right click on Dockerfile go to properties copy the file location 
+ 		 2>open cmd navigate to copied location
+ 		 $cd cpoied location
+ 		 $docker build -t sring-app:1.0 . (end alli space . important mari beda)
+ 		 $docker run -p 8080:8080 --name spring-api --link mymongo:mongo -d spring-app:1.0
+ 		 $docker logs spring-api
